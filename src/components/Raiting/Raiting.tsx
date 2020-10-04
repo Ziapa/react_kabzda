@@ -12,7 +12,7 @@ type StarType = {
 export function Rating(props: RatingType) {
 
     const [value, setValue] = useState(0)
-
+console.log(1)
     return (
         <div>
             <Star value={() => setValue(1)} selected={value > 0}/>
