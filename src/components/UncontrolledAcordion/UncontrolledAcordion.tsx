@@ -1,6 +1,6 @@
 import React from "react";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     title: string;
     collapsed: boolean;
     onClick: () => void
@@ -12,7 +12,7 @@ type AccordionTitleType = {
 }
 
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion(props: AccordionPropsType) {
 
     return (
         <div>

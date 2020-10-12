@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 
-type RatingType = {
+export type RatingType = {
 
 }
 
-type StarType = {
+export type StarType = {
     selected: boolean
     value: () => void
 }

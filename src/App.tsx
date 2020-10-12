@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Acordion/Acordion";
 import {Rating} from "./components/Raiting/Raiting";
-import {OnOff} from "./components/OnOff/OnOff";
+import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
 import {UncontrolledRating, RatingValueType} from './components/UncontrolledRaiting/UncontrolRaiting';
 import UncontrolledAccordion from './components/UncontrolledAcordion/UncontrolledAcordion';
-import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {OnOff} from "./components/UncontrolledOnOff/OnOff";
 
 type PageTitleType = {
     title: string
@@ -25,8 +25,8 @@ function App() {
             <UncontrolledAccordion title={"Users"} collapsed={collapsed} onClick={() => setCollapsed(!collapsed)}/>
             <Rating/>
             <UncontrolledRating value={ratingValue} onClick={setRatingValue}/>
-            <OnOff OnOff={true}/>
-            <UncontrolledOnOff OnOff={onOff} onClick={setOnOff}/>
+            <UncontrolledOnOff OnOff={true}/>
+            <OnOff OnOff={onOff} onClick={setOnOff}/>
         </div>
     )
 }
