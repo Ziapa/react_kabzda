@@ -10,11 +10,29 @@ export default {
     component: Accordion
 } as Meta;
 
-export const collapsed: Story<AccordionPropsType> = () => <Accordion onClick={action("clicked")} collapsed={true} title={"collapsed"}/>;
-export const onCollapsed: Story<AccordionPropsType> = () => <Accordion onClick={action("clicked")} collapsed={false} title={"onCollapsed"}/>;
+export const collapsed: Story<AccordionPropsType> = () => <Accordion onChange={action("clicked")} collapsed={true}
+                                                                     title={"collapsed"}
+                                                                     items=
+                                                                         {[{title: "SmiT", value: 1},
+                                                                         {title: "Shana", value: 2},
+                                                                         {title: "Braun", value: 3}]}
+                                                                     onClick={action("TEST")}/>;
+export const onCollapsed: Story<AccordionPropsType> = () => <Accordion onChange={action("clicked")} collapsed={false}
+                                                                       title={"onCollapsed"}
+                                                                       items={[
+                                                                           {title: "SmiT", value: 1},
+                                                                           {title: "Shana", value: 2},
+                                                                           {title: "Braun", value: 3}]}
+                                                                       onClick={action("TEST")}/>;
+
+
 export const ChangeCollapsed: Story<AccordionPropsType> = () => {
     const [collapsed, setCollapsed] = useState<boolean>(false)
-    return <Accordion onClick={() => setCollapsed(!collapsed)} collapsed={collapsed} title={"ChangeCollapsed"}/>
+    return <Accordion onChange={() => setCollapsed(!collapsed)} collapsed={collapsed} title={"ChangeCollapsed"}
+                      items={[{title: "SmiT", value: 1}, {title: "Shana", value: 2}, {title: "Braun", value: 3}]}
+                      onClick={id => {
+                          alert(`user with ID ${id} be happy`)
+                      }}/>
 };
 
 

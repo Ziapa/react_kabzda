@@ -1,0 +1,15 @@
+.relative {
+  position: relative;
+  border: 1px solid black;
+  width: 150px;
+  text-align: center;
+
+  .absolute {
+
+    transition: 500ms;
+
+    .absolute_item {
+      border-top: 1px solid black;
+    }
+  }
+}
