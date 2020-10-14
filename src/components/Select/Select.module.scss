@@ -5,8 +5,11 @@
   text-align: center;
 
   .absolute {
-
+    position: absolute;
     transition: 500ms;
+    border: 1px solid black;
+    left: -1px;
+    width: 150px;
 
     .absolute_item {
       border-top: 1px solid black;
