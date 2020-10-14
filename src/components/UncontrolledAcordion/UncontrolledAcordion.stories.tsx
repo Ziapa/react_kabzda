@@ -10,12 +10,9 @@ export default {
     component: UncontrolledAccordion
 } as Meta;
 
-export const collapsed: Story<AccordionPropsType> = () => <UncontrolledAccordion onClick={action("clicked")} collapsed={true} title={"collapsed"}/>;
-export const onCollapsed: Story<AccordionPropsType> = () => <UncontrolledAccordion onClick={action("clicked")} collapsed={false} title={"onCollapsed"}/>;
-export const ChangeCollapsed: Story<AccordionPropsType> = () => {
-    const [collapsed, setCollapsed] = useState<boolean>(false)
-    return <UncontrolledAccordion onClick={() => setCollapsed(!collapsed)} collapsed={collapsed} title={"ChangeCollapsed"}/>
-};
+export const collapsed: Story<AccordionPropsType> = () => <UncontrolledAccordion collapsed={true} title={"onCollapsed"}/>;
+export const onCollapsed: Story<AccordionPropsType> = () => <UncontrolledAccordion  collapsed={false} title={"collapsed"}/>;
+
 
 
 

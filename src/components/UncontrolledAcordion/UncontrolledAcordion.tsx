@@ -3,21 +3,20 @@ import React from "react";
 export type AccordionPropsType = {
     title: string;
     collapsed: boolean;
-    onClick: () => void
 }
 
 type AccordionTitleType = {
     title: string
-    onClick: () => void
 }
 
 
 export function UncontrolledAccordion(props: AccordionPropsType) {
 
+
+
     return (
-        <div>
-            <AccordionTitle title={props.title}
-            onClick={props.onClick}/>
+        <div >
+            <AccordionTitle title={props.title}/>
             { props.collapsed && <AccordionBody/>}
         </div>
     )
@@ -28,7 +27,7 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
 
 function AccordionTitle(props: AccordionTitleType) {
     return (
-        <h3 onClick={props.onClick}>{props.title}</h3>
+        <h3>{props.title}</h3>
     )
 }
 

@@ -1,29 +1,28 @@
-import React, {useState} from "react";
+import React from "react";
 
-export type RatingType = {
+export type RatingValueType =  0 | 1  | 2 | 3 | 4 | 5
 
+export type RatingPropsType = {
+    value:RatingValueType
+    onClick: (value:RatingValueType) => void
 }
 
-export type StarType = {
+type StarType = {
     selected: boolean
     value: () => void
 }
 
-export function Rating(props: RatingType) {
-
-    const [value, setValue] = useState(1)
-
+export function Rating(props: RatingPropsType) {
 
     return (
         <div>
-            <Star value={() => setValue(1)} selected={value > 0}/>
-            <Star value={() => setValue(2)} selected={value > 1}/>
-            <Star value={() => setValue(3)} selected={value > 2}/>
-            <Star value={() => setValue(4)} selected={value > 3}/>
-            <Star value={() => setValue(5)} selected={value > 4}/>
+            <Star value={() => props.onClick(1)} selected={props.value > 0}/>
+            <Star value={() => props.onClick(2)} selected={props.value > 1}/>
+            <Star value={() => props.onClick(3)} selected={props.value > 2}/>
+            <Star value={() => props.onClick(4)} selected={props.value > 3}/>
+            <Star value={() => props.onClick(5)} selected={props.value > 4}/>
         </div>
     )
-
 }
 
 
