@@ -14,7 +14,7 @@ export default {
 } as Meta;
 
 
-export const selectChangeValue: Story<SelectPropsType> = () => {
+export const SelectChangeValue: Story<SelectPropsType> = () => {
 
     const [selectValue, setSelectValue] = useState<string>("none")
     const [collapsed,setCollapsed] = useState<boolean>(false)

@@ -40,7 +40,8 @@ export type SelectBodyType = {
 
 export const SelectBody = (props: SelectBodyType) => {
     const onStyle = {
-        display: props.collapsed ? "none" : "block"
+        display: props.collapsed ? "none" : "block",
+        // height: props.collapsed ? "0" : "100px"
     }
 
     return (
