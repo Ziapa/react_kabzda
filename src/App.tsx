@@ -18,8 +18,11 @@ function App() {
 
     const [ratingValue, setRatingValue] = useState<RatingValueType>(1)
     const [collapsed, setCollapsed] = useState<boolean>(false)
-    const [collapsedSelect, setCollapsedSelect] = useState<boolean>(false)
     const [onOff, setOnOff] = useState<boolean>(false)
+
+    const [collapsedSelect, setCollapsedSelect] = useState<boolean>(false)
+    const collapsedSelectValue = () => setCollapsedSelect(!collapsedSelect)
+
     const [selectValue, setSelectValue] = useState("none")
     const changeSelectValue = (value:string) => setSelectValue(value)
 
@@ -41,7 +44,7 @@ function App() {
             <Select collapsed={collapsedSelect}
                     selectValue={selectValue}
                     changeSelectValue={changeSelectValue}
-                    onChange={() => setCollapsedSelect(!collapsedSelect)}
+                    onChange={collapsedSelectValue}
                 items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
         </div>
     )
