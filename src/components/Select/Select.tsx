@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, KeyboardEvent, useEffect} from "react";
 import s from "./Select.module.scss";
 
 export type ItemType = {
@@ -9,8 +9,8 @@ export type ItemType = {
 export type SelectPropsType = {
     items: ItemType[]
     collapsed: boolean
-    onChange: () => void
     selectValue: string
+    onChange: () => void
     changeSelectValue: (value: string) => void
 }
 
@@ -18,37 +18,85 @@ export type SelectPropsType = {
 export const Select = (props: SelectPropsType) => {
 
 
-    return (
-        <div onClick={props.onChange} className={s.relative}>
-            {props.selectValue}
+    const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
+        for (let i = 0; i < props.items.length; i++) {
+            if (e.key === "ArrowDown") {
+                if (props.items[i].title === props.selectValue) {
+                    if (props.items[i + 1]) {
+                        props.changeSelectValue(props.items[i + 1].title)
+                        break
+                    }
+                }
+            }
+            if (e.key === "ArrowUp") {
+                if (props.items[i].title === props.selectValue) {
+                    if (props.items[i - 1]) {
+                        props.changeSelectValue(props.items[i - 1].title)
+                        break
+                    }
+                }
+            }
+        }
+    }
 
-            <SelectBody
-                        changeSelectValue={props.changeSelectValue}
-                        items={props.items}
-                        collapsed={props.collapsed}/>
+    return (
+
+
+        <div>
+            <select name="" id="">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+            </select>
+
+            <div tabIndex={0} onKeyUp={onKeyUp} onClick={props.onChange} className={s.relative}>
+                {props.selectValue}
+
+                <SelectBody
+                    value={props.selectValue}
+                    changeSelectValue={props.changeSelectValue}
+                    items={props.items}
+                    collapsed={props.collapsed}/>
+            </div>
         </div>
+
+
     )
 }
 
 export type SelectBodyType = {
-    collapsed: boolean
+    value: string
     items: ItemType[]
+    collapsed: boolean
     changeSelectValue: (value: string) => void
 }
 
 export const SelectBody = (props: SelectBodyType) => {
-    const onStyle = {
-        // display: props.collapsed ? "none" : "block",
-        // height: props.collapsed ? "0" : "100px"
+
+
+    const valueFind = (value: string) => {
+        const setValue = props.items.find(i => i.value === value)
+        setValue && props.changeSelectValue(setValue.title)
     }
 
-    return (
-        <div style={onStyle} className={s.absolute}>
+    const [color, setColor] = useState<string>('')
 
-            {props.collapsed &&  props.items.map(i =>
-                <div onClick={ () => {props.changeSelectValue(i.title)}}
-                     className={s.absolute_item}
-                     key={i.value}>{i.title}</div>)}
+    useEffect(() => {
+        setColor(props.value)
+    },[props.value])
+
+    return (
+        <div className={s.absolute}>
+
+            {props.collapsed && props.items.map(i =>
+                <div
+                    style={{background: color === i.title ? 'red' : ''}}
+                    onMouseEnter={() => setColor(i.title)}
+                    onClick={() => {
+                        valueFind(i.value)
+                    }}
+                    className={s.absolute_item}
+                    key={i.value}>{i.title}</div>)}
         </div>
     )
 }

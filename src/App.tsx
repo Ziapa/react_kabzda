@@ -15,16 +15,20 @@ type PageTitleType = {
 
 
 function App() {
-
+// Accordion
     const [ratingValue, setRatingValue] = useState<RatingValueType>(1)
-    const [collapsed, setCollapsed] = useState<boolean>(false)
-    const [onOff, setOnOff] = useState<boolean>(false)
 
+// Rating
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+
+// OnOff
+    const [onOff, setOnOff] = useState<boolean>(false)
+// Select
     const [collapsedSelect, setCollapsedSelect] = useState<boolean>(false)
     const collapsedSelectValue = () => setCollapsedSelect(!collapsedSelect)
 
-    const [selectValue, setSelectValue] = useState("none")
-    const changeSelectValue = (value:string) => setSelectValue(value)
+    const [selectValue, setSelectValue] = useState("SmiT")
+    const changeSelectValue = (value: string) => setSelectValue(value)
 
 
     return (
@@ -32,7 +36,10 @@ function App() {
             <PageTitle title={"123"}/>
             <UncontrolledAccordion title={"Menu"} collapsed={true}/>
             <Accordion title={"Users"} collapsed={collapsed} onChange={() => setCollapsed(!collapsed)}
-                       items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}
+                       items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {
+                           title: "Braun",
+                           value: v1()
+                       }]}
                        onClick={id => {
                            alert(`user with ID ${id} be happy`)
                        }}
@@ -45,7 +52,10 @@ function App() {
                     selectValue={selectValue}
                     changeSelectValue={changeSelectValue}
                     onChange={collapsedSelectValue}
-                items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                    items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {
+                        title: "Braun",
+                        value: v1()
+                    }]}/>
         </div>
     )
 }

@@ -7,12 +7,16 @@
   .absolute {
     position: absolute;
     transition: 500ms;
-    border: 1px solid black;
     left: -1px;
-    width: 150px;
+    width: 152px;
 
     .absolute_item {
-      border-top: 1px solid black;
+      border: 1px solid black;
+
+    }
+    s.absolute_itemHover {
+      color: white;
+      background-color: darkblue;
     }
   }
 }
