@@ -24,8 +24,8 @@ function App() {
 // OnOff
     const [onOff, setOnOff] = useState<boolean>(false)
 // Select
-    const [collapsedSelect, setCollapsedSelect] = useState<boolean>(false)
-    const collapsedSelectValue = () => setCollapsedSelect(!collapsedSelect)
+
+
 
     const [selectValue, setSelectValue] = useState("SmiT")
     const changeSelectValue = (value: string) => setSelectValue(value)
@@ -48,12 +48,13 @@ function App() {
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledOnOff OnOff={true}/>
             <OnOff OnOff={onOff} onClick={setOnOff}/>
-            <Select collapsed={collapsedSelect}
-                    selectValue={selectValue}
+
+            <Select
+                color={"red"}
+                selectValue={selectValue}
                     changeSelectValue={changeSelectValue}
-                    onChange={collapsedSelectValue}
-                    items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {
-                        title: "Braun",
+                    items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {
+                        name: "Braun",
                         value: v1()
                     }]}/>
         </div>

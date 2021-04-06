@@ -1,5 +1,4 @@
 import React, {ChangeEvent, KeyboardEvent} from "react";
-import {action} from "@storybook/addon-actions";
 
 type ItemType = {
     title: string
@@ -40,7 +39,7 @@ export function Accordion(props: AccordionPropsType) {
 function AccordionTitle(props: AccordionTitleType) {
 
     const [changeTitle, setChangeTitle] = React.useState<boolean>(false)
-    const textChangeTitle = (e: ChangeEvent<HTMLInputElement>) => props.changeTittle(e.currentTarget.value)
+    const textChangeTitle = (e: ChangeEvent<HTMLInputElement>) =>props.changeTittle && props.changeTittle(e.currentTarget.value)
     const onBlurEnter = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
             setChangeTitle(!changeTitle)

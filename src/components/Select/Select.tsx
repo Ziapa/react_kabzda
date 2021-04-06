@@ -2,36 +2,37 @@ import React, {useState, KeyboardEvent, useEffect} from "react";
 import s from "./Select.module.scss";
 
 export type ItemType = {
-    title: string
-    value: any
+    name: string
+    value: string
 }
 
 export type SelectPropsType = {
     items: ItemType[]
-    collapsed: boolean
+    color: string
     selectValue: string
-    onChange: () => void
     changeSelectValue: (value: string) => void
 }
 
 
 export const Select = (props: SelectPropsType) => {
 
+    const [collapsed,setCollapsed] = useState<boolean>(false)
+    const collapsedSelectValue = () => setCollapsed(!collapsed)
 
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
         for (let i = 0; i < props.items.length; i++) {
             if (e.key === "ArrowDown") {
-                if (props.items[i].title === props.selectValue) {
+                if (props.items[i].name === props.selectValue) {
                     if (props.items[i + 1]) {
-                        props.changeSelectValue(props.items[i + 1].title)
+                        props.changeSelectValue(props.items[i + 1].name)
                         break
                     }
                 }
             }
             if (e.key === "ArrowUp") {
-                if (props.items[i].title === props.selectValue) {
+                if (props.items[i].name === props.selectValue) {
                     if (props.items[i - 1]) {
-                        props.changeSelectValue(props.items[i - 1].title)
+                        props.changeSelectValue(props.items[i - 1].name)
                         break
                     }
                 }
@@ -40,32 +41,22 @@ export const Select = (props: SelectPropsType) => {
     }
 
     return (
+        <div tabIndex={0} onKeyUp={onKeyUp} onClick={collapsedSelectValue} className={s.relative}>
+            {props.selectValue}
 
-
-        <div>
-            <select name="" id="">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-            </select>
-
-            <div tabIndex={0} onKeyUp={onKeyUp} onClick={props.onChange} className={s.relative}>
-                {props.selectValue}
-
-                <SelectBody
-                    value={props.selectValue}
-                    changeSelectValue={props.changeSelectValue}
-                    items={props.items}
-                    collapsed={props.collapsed}/>
-            </div>
+            <SelectBody
+                color={props.color}
+                value={props.selectValue}
+                changeSelectValue={props.changeSelectValue}
+                items={props.items}
+                collapsed={collapsed}/>
         </div>
-
-
     )
 }
 
 export type SelectBodyType = {
     value: string
+    color: string
     items: ItemType[]
     collapsed: boolean
     changeSelectValue: (value: string) => void
@@ -76,27 +67,28 @@ export const SelectBody = (props: SelectBodyType) => {
 
     const valueFind = (value: string) => {
         const setValue = props.items.find(i => i.value === value)
-        setValue && props.changeSelectValue(setValue.title)
+        setValue && props.changeSelectValue(setValue.name)
     }
 
-    const [color, setColor] = useState<string>('')
+    const [color, setColor] = useState<string>("white")
 
     useEffect(() => {
         setColor(props.value)
-    },[props.value])
+    }, [props.value])
 
     return (
         <div className={s.absolute}>
 
             {props.collapsed && props.items.map(i =>
                 <div
-                    style={{background: color === i.title ? 'red' : ''}}
-                    onMouseEnter={() => setColor(i.title)}
+                    style={{background: color === i.name ? props.color : ''}}
+                    onMouseMove={() => setColor(i.name)}
                     onClick={() => {
                         valueFind(i.value)
                     }}
                     className={s.absolute_item}
-                    key={i.value}>{i.title}</div>)}
+                    key={i.value}>{i.name}</div>)}
+
         </div>
     )
 }
