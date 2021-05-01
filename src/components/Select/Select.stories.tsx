@@ -22,7 +22,7 @@ export const SelectChangeValue: Story<SelectPropsType> = () => {
                    selectValue={selectValue}
                    changeSelectValue={(value: string) => setSelectValue(value)}
                    onChange={() => {setCollapsed(!collapsed)}}
-                   items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                   items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {name: "Braun", value: v1()}]}/>
 }
 export const onCollapseSelect: Story<SelectPropsType> = () => {
 
@@ -31,7 +31,7 @@ export const onCollapseSelect: Story<SelectPropsType> = () => {
                    selectValue={"none"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
-                   items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                   items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {name: "Braun", value: v1()}]}/>
 }
 export const offCollapseSelect: Story<SelectPropsType> = () => {
 
@@ -40,7 +40,7 @@ export const offCollapseSelect: Story<SelectPropsType> = () => {
                    selectValue={"none"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
-                   items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                   items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {name: "Braun", value: v1()}]}/>
 }
 
 export const selectedNone: Story<SelectPropsType> = () => {
@@ -50,7 +50,7 @@ export const selectedNone: Story<SelectPropsType> = () => {
                    selectValue={"none"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
-                   items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                   items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {name: "Braun", value: v1()}]}/>
 }
 
 export const selectedSmit: Story<SelectPropsType> = () => {
@@ -60,7 +60,7 @@ export const selectedSmit: Story<SelectPropsType> = () => {
                    selectValue={"SmiT"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
-                   items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                   items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {name: "Braun", value: v1()}]}/>
 }
 
 export const selectedShana: Story<SelectPropsType> = () => {
@@ -70,7 +70,7 @@ export const selectedShana: Story<SelectPropsType> = () => {
                    selectValue={"Shana"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
-                   items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                   items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {name: "Braun", value: v1()}]}/>
 }
 
 export const selectedBraun: Story<SelectPropsType> = () => {
@@ -80,6 +80,6 @@ export const selectedBraun: Story<SelectPropsType> = () => {
                    selectValue={"Braun"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
-                   items={[{title: "SmiT", value: v1()}, {title: "Shana", value: v1()}, {title: "Braun", value: v1()}]}/>
+                   items={[{name: "SmiT", value: v1()}, {name: "Shana", value: v1()}, {name: "Braun", value: v1()}]}/>
 }
 

@@ -108,7 +108,7 @@ export const SelectMemo: Story<SelectPropsType> = () => {
         setStateCity({...state})
     }
 
-    const resetStateOnKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    const resetStateOnKeyPress = (e: KeyboardEvent) => {
         if (e.key === "Enter") {
             resetState()
         }
