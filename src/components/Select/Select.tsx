@@ -7,10 +7,12 @@ export type ItemType = {
 }
 
 export type SelectPropsType = {
+    collapsed?: boolean
     items: ItemType[]
     color: string
     selectValue: string
     changeSelectValue: (value: string) => void
+    onChange?: () => void
 }
 
 

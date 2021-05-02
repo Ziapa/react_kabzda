@@ -118,7 +118,7 @@ export const SelectMemo: Story<SelectPropsType> = () => {
 
 
         <div style={{display: "block"}}>
-            {stateCity.city.map(c => <div>{c.name}</div>
+            {stateCity.city.map((c, i) => <div key={i}>{c.name}</div>
             )}
         </div>
         <div style={{display: "flex"}}>
@@ -148,7 +148,7 @@ export const SelectMemo: Story<SelectPropsType> = () => {
             selectValue={selectValueButton1}
             changeSelectValue={(value: string) => setSelectValueButton1(value)}
             items={state.button}/>
-        <input type="text" value={valueInput1} onKeyPress={(e) => resetStateOnKeyPress(e)}
+        <input type="text" value={valueInput1} onKeyPress={() => resetStateOnKeyPress}
                onChange={changeValueInput1}/>
         <button onClick={() => {
             newArray(valueInput1)

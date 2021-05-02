@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 
-import {Story, Meta} from '@storybook/react/types-6-0';
+import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {UncontrolledAccordion, AccordionPropsType,} from './UncontrolledAcordion';
-import {action} from "@storybook/addon-actions";
+import {AccordionPropsType, UncontrolledAccordion,} from './UncontrolledAcordion';
 
 export default {
     title: 'Example/UncontrolledAccordion',

@@ -19,6 +19,7 @@ export const SelectChangeValue: Story<SelectPropsType> = () => {
     const [selectValue, setSelectValue] = useState<string>("none")
     const [collapsed,setCollapsed] = useState<boolean>(false)
     return <Select collapsed={collapsed}
+                   color={"red"}
                    selectValue={selectValue}
                    changeSelectValue={(value: string) => setSelectValue(value)}
                    onChange={() => {setCollapsed(!collapsed)}}
@@ -28,6 +29,7 @@ export const onCollapseSelect: Story<SelectPropsType> = () => {
 
 
     return <Select collapsed={true}
+                   color={"red"}
                    selectValue={"none"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
@@ -37,6 +39,7 @@ export const offCollapseSelect: Story<SelectPropsType> = () => {
 
 
     return <Select collapsed={false}
+                   color={"red"}
                    selectValue={"none"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
@@ -47,6 +50,7 @@ export const selectedNone: Story<SelectPropsType> = () => {
 
 
     return <Select collapsed={false}
+                   color={"red"}
                    selectValue={"none"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
@@ -57,6 +61,7 @@ export const selectedSmit: Story<SelectPropsType> = () => {
 
 
     return <Select collapsed={false}
+                   color={"red"}
                    selectValue={"SmiT"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
@@ -67,6 +72,7 @@ export const selectedShana: Story<SelectPropsType> = () => {
 
 
     return <Select collapsed={false}
+                   color={"red"}
                    selectValue={"Shana"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
@@ -77,6 +83,7 @@ export const selectedBraun: Story<SelectPropsType> = () => {
 
 
     return <Select collapsed={false}
+                   color={"red"}
                    selectValue={"Braun"}
                    changeSelectValue={action("setSelectValue")}
                    onChange={action("setCollapsed(!collapsed)")}
